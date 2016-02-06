@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+<style>
+                body{background-image:url("resources/images/nasa-wallpaper.jpg");}
+            </style>
+    <f:view contentType="text/html">
+        <h:head>
+            
+
+            <title>WRIS Home Page</title>
+
+
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <ui:include src="WEB-INF/menu.xhtml"/>
+
+                <p:layoutUnit position="center">
+                    <p:separator />
+                    <h3 align="left">NASA HQ ITCD Work Request Intake System</h3>
+                    <p:separator/>
+                    <h:form>
+                    <div class="ui-grid ui-grid-responsive" align="center">
+
+                        <div class="ui-grid-col-3">
+                            <p:panel id="new" header="New Request" toggleable="false"  toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px">
+
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <h:commandLink action="#{navigationController.navigateNewRequest()}">
+                                    <p:graphicImage  height="200" width="200"  url="resources/images/new-service-request.png"/>
+                                    </h:commandLink>
+                                </h:panelGrid>
+
+
+                            </p:panel>
+                        </div>
+
+                        <div class="ui-grid-col-3">
+                            <p:panel id="search"  header="Search" toggleable="false"  toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px">
+
+                                <h:panelGrid  columns="2" cellpadding="10" width="20">
+                                    <h:commandLink   action="#{navigationController.navigateSearch()}">
+                                    <p:graphicImage onclick="" height="200" width="200"    url="resources/images/search.png"/>
+                                    </h:commandLink>
+                                </h:panelGrid>
+
+
+                            </p:panel>
+                        </div>
+                        <div class="ui-grid-col-3">
+                            <p:panel id="Reports" header="Reports" toggleable="false"  toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px">
+
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <h:commandLink   action="#{navigationController.navigateReports()}">
+                                    <p:graphicImage  height="200" width="200"  url="resources/images/reports.jpg"/>
+                                    </h:commandLink>
+                                </h:panelGrid>
+
+
+                            </p:panel>
+                        </div>
+                        <div class="ui-grid-col-3">
+                            <p:panel id="Surveys" header="Surveys" toggleable="false"  toggleSpeed="500" closeSpeed="500" widgetVar="panel" style="margin-bottom:20px">
+
+                                <h:panelGrid columns="2" cellpadding="10">
+                                    <h:commandLink   action="#{navigationController.navigateSurveys()}">
+                                    <p:graphicImage height="200" width="200"  url="resources/images/surveys.png"/>
+                                    </h:commandLink>
+                                </h:panelGrid>
+
+
+                            </p:panel>
+                        </div>
+
+                    </div>
+                    </h:form>
+
+
+                    <p:separator/>
+
+                    <p:panel id="welcome" header="Notice" style="margin-bottom:20px" toggleable="true">
+        <h:panelGrid columns="2" cellpadding="10">
+            
+            <h:outputText
+                value="This is a U.S. Government system and is for authorized users only.
+                       By accessing and using this computer system, you are consenting to 
+                       system monitoring, including the monitoring of keystrokes. 
+                       
+                       Unauthorized use of, or access to, this computer system may subject you 
+                       to disciplinary action and criminal prosecution."/>
+        </h:panelGrid>
+    </p:panel>
+
+
+                </p:layoutUnit>
+
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

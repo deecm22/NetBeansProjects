@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://services.customerapp.mccoy.com/" xmlns:tns="http://services.customerapp.mccoy.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="logTransaction" type="tns:logTransaction"/>
+
+  <xs:complexType name="logTransaction">
+    <xs:sequence>
+      <xs:element name="transactionLogMessage" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateAnnouncementsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateAnnouncementsLabel_anouncementnumber}" for="anouncementnumber" />
+                    <h:inputText id="anouncementnumber" value="#{announcementsController.selected.anouncementnumber}" title="#{bundle.CreateAnnouncementsTitle_anouncementnumber}" required="true" requiredMessage="#{bundle.CreateAnnouncementsRequiredMessage_anouncementnumber}"/>
+                    <h:outputLabel value="#{bundle.CreateAnnouncementsLabel_title}" for="title" />
+                    <h:inputText id="title" value="#{announcementsController.selected.title}" title="#{bundle.CreateAnnouncementsTitle_title}" required="true" requiredMessage="#{bundle.CreateAnnouncementsRequiredMessage_title}"/>
+                    <h:outputLabel value="#{bundle.CreateAnnouncementsLabel_annoucmentpk}" for="annoucmentpk" />
+                    <h:inputText id="annoucmentpk" value="#{announcementsController.selected.annoucmentpk}" title="#{bundle.CreateAnnouncementsTitle_annoucmentpk}" required="true" requiredMessage="#{bundle.CreateAnnouncementsRequiredMessage_annoucmentpk}"/>
+                    <h:outputLabel value="#{bundle.CreateAnnouncementsLabel_description}" for="description" />
+                    <h:inputTextarea rows="4" cols="30" id="description" value="#{announcementsController.selected.description}" title="#{bundle.CreateAnnouncementsTitle_description}" required="true" requiredMessage="#{bundle.CreateAnnouncementsRequiredMessage_description}"/>
+                    <h:outputLabel value="#{bundle.CreateAnnouncementsLabel_graderequired}" for="graderequired" />
+                    <h:inputText id="graderequired" value="#{announcementsController.selected.graderequired}" title="#{bundle.CreateAnnouncementsTitle_graderequired}" />
+                    <h:outputLabel value="#{bundle.CreateAnnouncementsLabel_jobseries}" for="jobseries" />
+                    <h:inputText id="jobseries" value="#{announcementsController.selected.jobseries}" title="#{bundle.CreateAnnouncementsTitle_jobseries}" />
+                    <h:outputLabel value="#{bundle.CreateAnnouncementsLabel_jobseriestitle}" for="jobseriestitle" />
+                    <h:inputText id="jobseriestitle" value="#{announcementsController.selected.jobseriestitle}" title="#{bundle.CreateAnnouncementsTitle_jobseriestitle}" />
+                    <h:outputLabel value="#{bundle.CreateAnnouncementsLabel_annoucementstartdate}" for="annoucementstartdate" />
+                    <h:inputText id="annoucementstartdate" value="#{announcementsController.selected.annoucementstartdate}" title="#{bundle.CreateAnnouncementsTitle_annoucementstartdate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateAnnouncementsLabel_annoucmentenddate}" for="annoucmentenddate" />
+                    <h:inputText id="annoucmentenddate" value="#{announcementsController.selected.annoucmentenddate}" title="#{bundle.CreateAnnouncementsTitle_annoucmentenddate}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{announcementsController.create}" value="#{bundle.CreateAnnouncementsSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{announcementsController.prepareList}" value="#{bundle.CreateAnnouncementsShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateAnnouncementsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

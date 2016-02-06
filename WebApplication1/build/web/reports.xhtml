@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <style>
+        body{background-image:url("resources/images/nasa-wallpaper.jpg");}
+    </style>
+    <f:view contentType="text/html">
+        <h:head>
+            <title>WRIS Reports Page</title>
+        </h:head>
+        <h:body>
+
+            <p:layout   fullPage="false">
+                <ui:include src="WEB-INF/menu.xhtml"/>
+
+
+
+                <p:layoutUnit position="center">
+                    <p:separator />
+                    <h3 align="left">NASA HQ ITCD Work Request Intake System</h3>
+                    <p:separator/>
+
+
+
+                    <h:form>
+                       
+<div class="ui-grid ui-grid-responsive">
+    <h:panelGrid columns="2" columnClasses="left,right" style="width:100%">
+    <div class="ui-grid-row">
+        <div class="ui-grid-col-6">
+         <p:chart type="pie" model="#{chartView.pieModel1}" style="width:400px;height:300px">
+         </p:chart>
+        
+        </div>
+        <div class="ui-grid-col-6">
+            <p:chart type="bar" model="#{chartView.barModel}" style="width:400px;height:300px">    
+            </p:chart>
+            
+        </div>
+    </div>
+        </h:panelGrid>
+</div>
+
+                    </h:form>
+
+</p:layoutUnit>
+            </p:layout>
+        </h:body>
+    </f:view>
+</html>
+

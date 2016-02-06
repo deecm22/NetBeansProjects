@@ -1,0 +1,90 @@
+<ui:composition template="/WEB-INF/templates/masterTemplate.xhtml"
+                xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+>
+
+<ui:define name="bodycontent">
+    
+    <h3>TEST</h3>
+    
+    <f:view>
+
+
+        <h:form>
+            <h1><h:outputText value="List"/></h1>
+            <p:dataTable value="#{searchEntriesManagedBean.entries}" var="item">
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Entryid"/>
+                    </f:facet>
+                    <h:outputText value="#{item.entryid}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Title"/>
+                    </f:facet>
+                    <h:outputText value="#{item.title}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Hearingdate"/>
+                    </f:facet>
+                    <h:outputText value="#{item.hearingdate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Commitee"/>
+                    </f:facet>
+                    <h:outputText value="#{item.commitee}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Question"/>
+                    </f:facet>
+                    <h:outputText value="#{item.question}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Answer"/>
+                    </f:facet>
+                    <h:outputText value="#{item.answer}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Assignedorg"/>
+                    </f:facet>
+                    <h:outputText value="#{item.assignedorg}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Actionstatus"/>
+                    </f:facet>
+                    <h:outputText value="#{item.actionstatus}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Needsaction"/>
+                    </f:facet>
+                    <h:outputText value="#{item.needsaction}"/>
+                </p:column>
+                <p:column>
+                    <f:facet name="header">
+                        <h:outputText value="Duedate"/>
+                    </f:facet>
+                    <h:outputText value="#{item.duedate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </f:view>
+
+
+</ui:define>
+    
+</ui:composition>

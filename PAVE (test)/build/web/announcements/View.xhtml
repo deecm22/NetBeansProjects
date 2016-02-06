@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewAnnouncementsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewAnnouncementsLabel_anouncementnumber}"/>
+                    <h:outputText value="#{announcementsController.selected.anouncementnumber}" title="#{bundle.ViewAnnouncementsTitle_anouncementnumber}"/>
+                    <h:outputText value="#{bundle.ViewAnnouncementsLabel_title}"/>
+                    <h:outputText value="#{announcementsController.selected.title}" title="#{bundle.ViewAnnouncementsTitle_title}"/>
+                    <h:outputText value="#{bundle.ViewAnnouncementsLabel_annoucmentpk}"/>
+                    <h:outputText value="#{announcementsController.selected.annoucmentpk}" title="#{bundle.ViewAnnouncementsTitle_annoucmentpk}"/>
+                    <h:outputText value="#{bundle.ViewAnnouncementsLabel_description}"/>
+                    <h:outputText value="#{announcementsController.selected.description}" title="#{bundle.ViewAnnouncementsTitle_description}"/>
+                    <h:outputText value="#{bundle.ViewAnnouncementsLabel_graderequired}"/>
+                    <h:outputText value="#{announcementsController.selected.graderequired}" title="#{bundle.ViewAnnouncementsTitle_graderequired}"/>
+                    <h:outputText value="#{bundle.ViewAnnouncementsLabel_jobseries}"/>
+                    <h:outputText value="#{announcementsController.selected.jobseries}" title="#{bundle.ViewAnnouncementsTitle_jobseries}"/>
+                    <h:outputText value="#{bundle.ViewAnnouncementsLabel_jobseriestitle}"/>
+                    <h:outputText value="#{announcementsController.selected.jobseriestitle}" title="#{bundle.ViewAnnouncementsTitle_jobseriestitle}"/>
+                    <h:outputText value="#{bundle.ViewAnnouncementsLabel_annoucementstartdate}"/>
+                    <h:outputText value="#{announcementsController.selected.annoucementstartdate}" title="#{bundle.ViewAnnouncementsTitle_annoucementstartdate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewAnnouncementsLabel_annoucmentenddate}"/>
+                    <h:outputText value="#{announcementsController.selected.annoucmentenddate}" title="#{bundle.ViewAnnouncementsTitle_annoucmentenddate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:outputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{announcementsController.destroyAndView}" value="#{bundle.ViewAnnouncementsDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewAnnouncementsEditLink}"/>
+                <br />
+                <h:commandLink action="#{announcementsController.prepareCreate}" value="#{bundle.ViewAnnouncementsCreateLink}" />
+                <br />
+                <h:commandLink action="#{announcementsController.prepareList}" value="#{bundle.ViewAnnouncementsShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewAnnouncementsIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

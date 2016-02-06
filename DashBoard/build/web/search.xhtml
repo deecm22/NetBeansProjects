@@ -1,0 +1,171 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <style>
+        body{background-image:url("resources/images/nasa-wallpaper.jpg");}
+    </style>
+    <f:view  contentType="text/html">
+        <h:head>
+            <title>Work Request Search Page</title>
+        </h:head>
+        <h:body>
+            <p:layout  fullPage="false">
+                <ui:include src="WEB-INF/menu.xhtml"/>
+
+                <p:layoutUnit position="center">
+                    <p:separator />
+                    <h3 align="left">NASA HQ ITCD Work Request Intake System</h3>
+                    <p:separator/>
+                    <f:view>
+
+                        <p:panelGrid columns="1" layout="grid">
+                            <h:form id="search">
+
+                                <h3 align="center"><h:outputText  value="List of Work Requests"/></h3>
+
+                                <p:dataTable  widgetVar="wrsTable" id="wrs" paginatorPosition="bottom" paginator="true" emptyMessage="No Records Found" value="#{searchController.workRequests}" 
+                                              var="item" paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {Exporters}"
+                                              rows="10" style="margin-bottom:20px" draggableColumns="true">
+
+
+                                    <f:facet name="header">
+                                        <p:outputPanel layout="inline">
+                                            <h:outputText value="Search all fields:" />
+                                            <p:inputText id="globalFilter" onkeyup="PF('wrsTable').filter()"   style="width:150px" placeholder="Enter keyword"/>
+                                        </p:outputPanel>
+                                        <!--
+                                         <p:commandButton id="toggler" type="button" value="Columns" style="float:left" icon="ui-icon-calculator" />
+                                         <p:columnToggler datasource="wrs" trigger="toggler" />
+                                        -->
+                                    </f:facet>
+
+                                    <f:facet name="{Exporters}">
+
+                                        <h:commandLink>
+                                            <p:graphicImage url="resources/images/csv.jpg" width="24"/>
+                                            <p:dataExporter type="csv" target="wrs" fileName="work_requests" />
+                                        </h:commandLink>
+
+                                    </f:facet>
+
+
+
+                                    <p:column headerText="Id" sortBy="#{item.srID}">
+
+                                        <h:outputText value="#{item.srID}" title="ID"/>
+                                    </p:column>
+
+
+                                    <p:column  headerText="First" sortBy="#{item.reqFName}">
+
+                                        <h:outputText value="#{item.reqFName}"/>
+                                    </p:column>
+
+                                    <p:column  headerText="Last"  sortBy="#{item.reqLName}">
+
+                                        <h:outputText value="#{item.reqLName}"/>
+                                    </p:column>
+
+
+
+                                    <p:column headerText="Org" sortBy="#{item.reqOrg}">
+
+                                        <h:outputText value="#{item.reqOrg}"/>
+                                    </p:column>
+
+
+                                    <p:column headerText="Submitted" sortBy="#{item.subDate}">
+
+                                        <h:outputText value="#{item.subDate}">
+                                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                                        </h:outputText>
+                                    </p:column>
+
+                                    <p:column headerText="Estimated Completion"  sortBy="#{item.reqEstComplDate}">
+
+                                        <h:outputText value="#{item.reqEstComplDate}">
+                                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                                        </h:outputText>
+                                    </p:column>
+
+                                    <p:column headerText="Date Completed" sortBy="#{item.reqCompletedDate}">
+
+                                        <h:outputText value="#{item.reqCompletedDate}">
+                                            <f:convertDateTime pattern="MM/dd/yyyy" />
+                                        </h:outputText>
+                                    </p:column>
+
+                                    <p:column headerText="Status"  sortBy="#{item.reqStatus}">
+
+                                        <h:outputText value="#{item.reqStatus}"/>
+                                    </p:column>
+
+                                    <p:column width="150px" headerText="Description" sortBy="#{item.reqDescription}">
+
+                                        <h:outputText value="#{item.reqDescription}"/>
+                                    </p:column>
+
+                                    <p:column headerText="Task Order"  sortBy="#{item.taskOrder}" >
+
+                                        <h:outputText value="#{item.taskOrder}"/>
+                                    </p:column>
+
+                                    <p:column style="width:75px;text-align: center">
+                                        <p:commandButton  update=":search:wrDetail" onclick="PF('wrDialog').show()"  icon="ui-icon-search" title="WR Details">
+                                            <f:setPropertyActionListener value="#{item}" target="#{searchController.selectedWR}" />
+                                        </p:commandButton>
+                                    </p:column>
+                             
+
+                                </p:dataTable>
+
+                                <p:dialog header="WR Info" widgetVar="wrDialog" modal="true"  showEffect="fade" hideEffect="fade" closable="true" resizable="true">
+                                    <p:outputPanel id="wrDetail" style="text-align:left;">
+                                        <p:panelGrid  columns="3"   rendered ="#{not empty searchController.selectedWR}"  columnClasses="label,value">
+
+                                            <h:outputText value="Id:" />
+                                            <h:outputText value="#{searchController.selectedWR.srID}" />
+
+                                            <h:outputText value="Task Order:" />
+                                            <h:outputText value="#{searchController.selectedWR.taskOrder}" />
+
+                                            <h:outputText value="First Name:" />
+                                            <h:outputText value="#{searchController.selectedWR.reqFName}"/>
+
+                                            <h:outputText value="Last Name:" />
+                                            <h:outputText value="#{searchController.selectedWR.reqLName}" />
+                                         
+                                            <h:outputText value="Status:" />
+                                            <h:outputText value="#{searchController.selectedWR.reqStatus}" />
+
+                                            <h:outputText value="Submitted Date:" />
+                                            <h:outputText value="#{searchController.selectedWR.subDate}" />
+
+                                            <h:outputText value="Org:" />
+                                            <h:outputText value="#{searchController.selectedWR.reqOrg}"/>
+
+                                            <h:outputText value="Description:" />
+                                            <h:outputText value="#{searchController.selectedWR.reqDescription}" />
+                                            
+                                             <h:outputText value="Date Completed:" />
+                                             <h:outputText value="#{searchController.selectedWR.reqCompletedDate}" />
+
+                                            <h:outputText value="Estimated Completion Date:" />
+                                            <h:outputText value="#{searchController.selectedWR.reqEstComplDate}" />
+  
+                                        </p:panelGrid>
+                                    </p:outputPanel>
+                                </p:dialog>
+                            </h:form>
+                        </p:panelGrid>
+                    </f:view>
+                </p:layoutUnit>
+            </p:layout>
+        </h:body>
+    </f:view>
+</html>
+

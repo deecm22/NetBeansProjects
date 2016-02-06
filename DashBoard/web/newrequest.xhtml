@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+   
+    <style>
+                body{background-image:url("resources/images/nasa-wallpaper.jpg");}
+            </style>
+            <f:view contentType="text/html">
+    <h:head>
+        <title>New Work Request Page</title>
+    </h:head>
+    <h:body>
+        
+        <p:layout   fullPage="false">
+            <ui:include src="WEB-INF/menu.xhtml"/>
+
+            <p:layoutUnit position="center">
+<p:separator />
+        <h3 align="left">NASA HQ ITCD Work Request Intake System</h3>
+        <p:separator/>
+                <f:view>
+
+
+
+                    <h:form>
+                        <h1><h:outputText value="Create"/></h1>
+                        <p:panelGrid columns="4">
+                            <p:outputLabel value="Task Order:" for="taskOrder" />
+                            <p:inputText id="taskOrder" value="#{newRequestController.wr.taskOrder}" title="Task Order" />
+                            <p:outputLabel value="First Name:" for="reqFName" />
+                            <p:inputText id="reqFName" value="#{newRequestController.wr.reqFName}" title="ReqFName" />
+                            <p:outputLabel value="Last Name:" for="reqLName" />
+                            <p:inputText id="reqLName" value="#{newRequestController.wr.reqLName}" title="ReqLName" />
+                            <p:outputLabel value="Org:" for="reqOrg" />
+                            <p:inputText id="reqOrg" value="#{newRequestController.wr.reqOrg}" title="Org" />
+                            <p:outputLabel value="Date Submitted:" for="subDate" />
+                            <p:calendar id="subDate" value="#{newRequestController.wr.subDate}" title="Subbmission Date" >
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </p:calendar>
+                            <p:outputLabel value="Estimated Completion Date:" for="reqEstComplDate" />
+                            <p:calendar id="reqEstComplDate" value="#{newRequestController.wr.reqEstComplDate}" title="EstimatedCompletionDate" >
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </p:calendar>
+                            <p:outputLabel value="Date Completed:" for="reqCompletedDate" />
+                            <p:calendar id="reqCompletedDate" value="#{newRequestController.wr.reqCompletedDate}" title="DateCompleted" >
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </p:calendar>
+                            <p:outputLabel value="Status:" for="reqStatus" />
+                            <p:selectOneMenu id="reqStatus" value="#{newRequestController.wr.reqStatus}" title="Status" >
+                                <f:selectItem   itemLabel="Select One" itemValue=""/>
+                                <f:selectItem   itemLabel="New" itemValue="NEW"/>
+                                <f:selectItem   itemLabel="Pending" itemValue="PENDING"/>
+                                <f:selectItem   itemLabel="In Progress" itemValue="IN_PROGRESS"/>
+                                <f:selectItem   itemLabel="Closed" itemValue="CLOSED"/>
+                                <f:selectItem   itemLabel="Rejected" itemValue="REJECTED"/>
+                                <f:selectItem   itemLabel="Deferred" itemValue="DEFFERED"/>
+                                <f:selectItem   itemLabel="Needs Review" itemValue="NEEDS_REVIEW"/>
+                            </p:selectOneMenu>
+                            <p:outputLabel value="Description:" for="reqDescription" />
+                            <p:inputText id="reqDescription" value="#{newRequestController.wr.reqDescription}" title="Description" />
+                            <p:outputLabel value="Id:" for="srID" />
+                            <p:inputText id="srID" value="#{newRequestController.wr.srID}" title="Id" required="true" requiredMessage="The Id field is required."/>
+                       
+                            <p:commandButton  value="Submit" icon="ui-icon-disk" action="#{newRequestController.submitNewRequest()}"></p:commandButton>
+                        </p:panelGrid>
+                        
+                    </h:form>
+
+                    
+                </f:view>
+
+                
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+            </f:view>
+</html>
+

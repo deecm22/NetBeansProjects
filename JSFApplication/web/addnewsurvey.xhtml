@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    
+    <!--jquery cdn link-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"/>
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous"/>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>Add New WRIS Survey</title>
+            </f:facet>
+        </h:head>
+
+        <h:body>
+
+            <p:layout fullPage="true">
+
+                <p:layoutUnit position="north" size="100" resizable="true" closable="true" collapsible="true">
+                    Header
+                </p:layoutUnit>
+
+                <p:layoutUnit position="south" size="100" closable="true" collapsible="true">
+                    Footer
+                </p:layoutUnit>
+
+                <p:layoutUnit position="west" size="175" header="Left" collapsible="true">
+                    <p:menu>
+                        <p:submenu label="Resources">
+                            <p:menuitem value="Add New Survey" url="faces/addnewsurvey.xhtml"/>
+                            <p:menuitem value="Survey List" url="faces/surveyList.xhtml"/>                                                
+                        </p:submenu>
+
+                    </p:menu>
+                </p:layoutUnit>
+
+                <p:layoutUnit position="center">
+                    
+                 
+
+                    <f:view>
+
+                        
+                        <h:form>
+                            <p:message  for="myform"></p:message>
+                            <h1><h:outputText  value="New Survey"/></h1>
+                            <p:panelGrid  id="myform" columns="4">
+                                <p:outputLabel value="GroupId:" for="groupId" />
+                                <p:inputText  id="groupId" value="#{surveyManagedBean.surveyModel.groupId}" title="GroupId" />
+                                <p:outputLabel value="CompanyId:" for="companyId" />
+                                <p:inputText id="companyId" value="#{surveyManagedBean.surveyModel.companyId}" title="CompanyId" />
+                                <p:outputLabel value="UserId:" for="userId" />
+                                <p:inputTextarea rows="4" cols="30" id="userId" value="#{surveyManagedBean.surveyModel.userId}" title="UserId" />
+                                <p:outputLabel value="UserName:" for="userName" />
+                                <p:inputText id="userName" value="#{surveyManagedBean.surveyModel.userName}" title="UserName" />
+                                <p:outputLabel value="CreateDate:" for="createDate" />
+                                <p:calendar  id="createDate" value="#{surveyManagedBean.surveyModel.createDate}" title="CreateDate" >
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </p:calendar>
+                                <p:outputLabel value="ModifiedDate:" for="modifiedDate" />
+                                <p:calendar  id="modifiedDate" value="#{surveyManagedBean.surveyModel.modifiedDate}" title="ModifiedDate" >
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </p:calendar>
+                                <p:outputLabel value="ReqId:" for="reqId" />
+                                <p:inputText id="reqId" value="#{surveyManagedBean.surveyModel.reqId}" title="ReqId" />
+                                <p:outputLabel value="Avgscore:" for="avgscore" />
+                                <p:spinner min="0" max="5" id="avgscore" value="#{surveyManagedBean.surveyModel.avgscore}" title="Avgscore" />
+                                <p:outputLabel value="Overallsatreq:" for="overallsatreq" />
+                                <p:spinner min="0"  max="5" id="overallsatreq" value="#{surveyManagedBean.surveyModel.overallsatreq}" title="Overallsatreq" />
+                                <p:outputLabel value="Custrelations:" for="custrelations" />
+                                <p:spinner min="0" max="5" id="custrelations" value="#{surveyManagedBean.surveyModel.custrelations}" title="Custrelations" />
+                                <p:outputLabel value="Commstatus:" for="commstatus" />
+                                <p:spinner min="0" max="5" id="commstatus" value="#{surveyManagedBean.surveyModel.commstatus}" title="Commstatus" />
+                                <p:outputLabel value="Quality:" for="quality" />
+                                <p:spinner min="0" max="5" id="quality" value="#{surveyManagedBean.surveyModel.quality}" title="Quality" />
+                                <p:outputLabel value="Timeliness:" for="timeliness" />
+                                <p:spinner min="0" max="5" id="timeliness" value="#{surveyManagedBean.surveyModel.timeliness}" title="Timeliness" />
+                                <p:outputLabel value="Overallsatwris:" for="overallsatwris" />
+                                <p:spinner max="5" id="overallsatwris" value="#{surveyManagedBean.surveyModel.overallsatwris}" title="Overallsatwris" />
+                                <p:outputLabel value="FirstName:" for="firstName" />
+                                <p:inputText id="firstName" value="#{surveyManagedBean.surveyModel.firstName}" title="FirstName" />
+                                <p:outputLabel value="LastName:" for="lastName" />
+                                <p:inputText id="lastName" value="#{surveyManagedBean.surveyModel.lastName}" title="LastName" />
+                                <p:outputLabel value="Requester:" for="requester" />
+                                <p:inputText id="requester" value="#{surveyManagedBean.surveyModel.requester}" title="Requester" />
+                                <p:outputLabel value="Completeddate:" for="completeddate" />
+                                <p:calendar id="completeddate" value="#{surveyManagedBean.surveyModel.completeddate}" title="Completeddate" />
+                                <p:outputLabel value="Comment:" for="comment" />
+                                <p:inputTextarea  rows="10"  cols="5" id="comment" value="#{surveyManagedBean.surveyModel.comment}" title="Comment" />
+                                <p:outputLabel value="WrisWRSurveyId:" for="wrisWRSurveyId" />
+                                <p:inputText id="wrisWRSurveyId" value="#{surveyManagedBean.surveyModel.wrisWRSurveyId}" title="WrisWRSurveyId" required="true" requiredMessage="The WrisWRSurveyId field is required."/>
+                            </p:panelGrid>
+                            <p:commandButton value="Add New Survey" action="#{surveyManagedBean.addNewSurvey()}"/>
+                        </h:form>
+                    </f:view>
+
+                    
+                    
+                </p:layoutUnit>
+
+            </p:layout>
+
+        </h:body>
+
+    </f:view>
+</html>
+

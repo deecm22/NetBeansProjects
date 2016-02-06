@@ -1,0 +1,1 @@
+$wnd.com_mycompany_mavenproject1_MyAppWidgetset.runAsyncCallback2('kdb(1599,1,O$d);_.vc=function zgc(){I1b((!B1b&&(B1b=new N1b),B1b),this.a.d)};oUd(Th)(2);\n//# sourceURL=com.mycompany.mavenproject1.MyAppWidgetset-2.js\n')

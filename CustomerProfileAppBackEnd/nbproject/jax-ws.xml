@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jax-ws xmlns="http://www.netbeans.org/ns/jax-ws/1">
+  <services>
+    <service name="salesService">
+      <implementation-class>com.mccoy.customerapp.services.salesService</implementation-class>
+    </service>
+    <service name="productManagementService">
+      <implementation-class>com.mccoy.customerapp.services.productManagementService</implementation-class>
+    </service>
+    <service name="transactionLoggerService">
+      <implementation-class>com.mccoy.customerapp.services.transactionLoggerService</implementation-class>
+    </service>
+    <service name="customerModuleService">
+      <implementation-class>com.mccoy.customerapp.services.customerModuleService</implementation-class>
+    </service>
+  </services>
+  <clients/>
+</jax-ws>

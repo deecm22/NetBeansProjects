@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/Users/deecm22/NetBeansProjects/PAVE%20(test)/web/index.xhtml</file>
+            <file>file:/Users/deecm22/NetBeansProjects/PAVE%20(test)/web/welcome.xhtml</file>
+            <file>file:/Users/deecm22/NetBeansProjects/PAVE%20(test)/web/WEB-INF/web.xml</file>
+            <file>file:/Users/deecm22/NetBeansProjects/PAVE%20(test)/src/java/Controllers/AnnouncementsFacade.java</file>
+            <file>file:/Users/deecm22/NetBeansProjects/PAVE%20(test)/src/java/Controllers/ApplicantFacadeLocal.java</file>
+            <file>file:/Users/deecm22/NetBeansProjects/PAVE%20(test)/src/java/Controllers/ApplicantFacade.java</file>
+            <file>file:/Users/deecm22/NetBeansProjects/PAVE%20(test)/src/java/Controllers/AnnouncementsFacadeLocal.java</file>
+            <file>file:/Users/deecm22/NetBeansProjects/PAVE%20(test)/src/java/Controllers/AbstractFacade.java</file>
+            <file>file:/Users/deecm22/NetBeansProjects/PAVE%20(test)/src/java/ViewManagedBeans/AnnoucmentManagedBean.java</file>
+            <file>file:/Users/deecm22/NetBeansProjects/PAVE%20(test)/web/template.xhtml</file>
+            <file>file:/Users/deecm22/NetBeansProjects/PAVE%20(test)/web/announcements/Create.xhtml</file>
+        </group>
+    </open-files>
+</project-private>

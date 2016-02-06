@@ -1,0 +1,6 @@
+com/mycompany/testvaaddinapplication/samples/backend/mock/MockDataGenerator.class
+com/mycompany/testvaaddinapplication/samples/backend/data/Availability.class
+com/mycompany/testvaaddinapplication/samples/backend/data/Category.class
+com/mycompany/testvaaddinapplication/samples/backend/mock/MockDataService.class
+com/mycompany/testvaaddinapplication/samples/backend/data/Product.class
+com/mycompany/testvaaddinapplication/samples/backend/DataService.class

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListAnnouncementsTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListAnnouncementsEmpty}" rendered="#{announcementsController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{announcementsController.items.rowCount > 0}">
+                    <h:outputText value="#{announcementsController.pagination.pageFirstItem + 1}..#{announcementsController.pagination.pageLastItem + 1}/#{announcementsController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{announcementsController.previous}" value="#{bundle.Previous} #{announcementsController.pagination.pageSize}" rendered="#{announcementsController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{announcementsController.next}" value="#{bundle.Next} #{announcementsController.pagination.pageSize}" rendered="#{announcementsController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{announcementsController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnnouncementsTitle_anouncementnumber}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.anouncementnumber}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnnouncementsTitle_title}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.title}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnnouncementsTitle_annoucmentpk}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.annoucmentpk}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnnouncementsTitle_description}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.description}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnnouncementsTitle_graderequired}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.graderequired}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnnouncementsTitle_jobseries}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.jobseries}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnnouncementsTitle_jobseriestitle}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.jobseriestitle}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnnouncementsTitle_annoucementstartdate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.annoucementstartdate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListAnnouncementsTitle_annoucmentenddate}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.annoucmentenddate}">
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:outputText>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{announcementsController.prepareView}" value="#{bundle.ListAnnouncementsViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{announcementsController.prepareEdit}" value="#{bundle.ListAnnouncementsEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{announcementsController.destroy}" value="#{bundle.ListAnnouncementsDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{announcementsController.prepareCreate}" value="#{bundle.ListAnnouncementsCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListAnnouncementsIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
