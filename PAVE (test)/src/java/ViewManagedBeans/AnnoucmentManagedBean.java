@@ -21,7 +21,7 @@ public class AnnoucmentManagedBean {
      * Creates a new instance of AnnoucmentManagedBean
      */
     public AnnoucmentManagedBean() {
-        
+        //to-do
     }
     
 }
